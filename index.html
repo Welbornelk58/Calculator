@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farid - Calculadora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div class = "container mt-5"> 
+        <div class = "col-3">
+
+            <input type="text" class = "form-control" id = "cajita">
+            <hr>
+
+            <div class = "mt-1">
+                <button class = "btn btn-primary" onclick = "acBot(1)"> 1 </button>
+                <button class = "btn btn-primary" onclick = "acBot(2)"> 2 </button>
+                <button class = "btn btn-primary" onclick = "acBot(3)"> 3 </button>
+                <button class = "btn btn-dark" onclick = "sumaBot()"> + </button>
+                <button class = "btn btn-info" onclick = "acTan()"> Tan </button>
+            </div>
+
+            <div class = "mt-1">
+                <button class = "btn btn-primary" onclick = "acBot(4)"> 4 </button>
+                <button class = "btn btn-primary" onclick = "acBot(5)"> 5 </button>
+                <button class = "btn btn-primary" onclick = "acBot(6)"> 6 </button>
+                <button class = "btn btn-dark" onclick = "acMen()"> - </button>
+                <button class = "btn btn-danger" onclick = "acCos()"> Cos </button>
+            </div>
+
+            <div class = "mt-1">
+                <button class = "btn btn-primary" onclick = "acBot(7)"> 7 </button>
+                <button class = "btn btn-primary" onclick = "acBot(8)"> 8 </button>
+                <button class = "btn btn-primary" onclick = "acBot(9)"> 9 </button>
+                <button class = "btn btn-dark" onclick = "acMUul()"> * </button>
+                <button class = "btn btn-secondary" onclick = "acPot()"> ^ </button>
+            </div>
+
+            <div class = "mt-1">
+                <button class = "btn btn-danger" onclick = "acCle()"> C </button>
+                <button class = "btn btn-primary" onclick = "acBot(0)"> 0 </button>
+                <button class = "btn btn-secondary" onclick = "acRes()"> = </button>
+                <button class = "btn btn-dark" onclick = "acDiv()"> / </button>
+                <button class = "btn btn-dark" onclick = "acRai()"> √ </button>
+            </div>
+
+            <div class = "mt-1">
+                <button class = "btn btn-primary" onclick = "acNom()"> Enrique Farid Flores Hernandez </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    
+    <script>
+        //$("#cajita").val("Hola BB!");
+
+        var jvalor = "";
+        var acum = "";
+        var opera = 0;
+
+        function acRes(){
+            if (opera ==1){
+                aux= parseInt (acum) + parseInt(jvalor);
+                $("#cajita").val(aux);
+                jvalor = aux;
+                opera=0;
+                }
+
+            if (opera ==2){
+                res= parseInt (acum) - parseInt(jvalor);
+                $("#cajita").val(res);
+                jvalor = res;
+                opera=0;
+            }
+
+            if (opera ==3){
+                mul= parseInt (acum) * parseInt(jvalor);
+                $("#cajita").val(mul);
+                jvalor = mul;
+                opera=0;
+            }
+
+            if (opera ==4){
+                div= parseInt (acum) / parseInt(jvalor);
+                $("#cajita").val(div);
+                jvalor = div;
+                opera=0;
+            }
+
+            if (opera ==5){
+                cos= Math.cos(parseInt(acum));
+                $("#cajita").val(cos);
+                jvalor = cos;
+                opera=0;
+            }
+
+            if (opera ==6){
+                tan= Math.tan(parseInt(acum));
+                $("#cajita").val(tan);
+                jvalor = tan;
+                opera=0;
+            }
+
+            if (opera ==7){
+                rai= Math.sqrt(parseInt(acum));
+                $("#cajita").val(rai);
+                jvalor = rai;
+                opera=0;
+            }
+
+            if (opera ==8){
+                pot= Math.pow((parseInt(acum)), (parseInt(jvalor)));
+                $("#cajita").val(pot);
+                jvalor = pot;
+                opera=0;
+            }
+        }
+
+        function sumaBot(){
+            acum = jvalor;
+            opera = 1; 
+            acCle();
+        }
+
+        function acMen(){
+            acum = jvalor;
+            opera = 2; 
+            acCle();
+        }
+        
+        function acMUul(){
+            acum = jvalor;
+            opera = 3; 
+            acCle();
+        }
+
+        function acDiv(){
+            acum = jvalor;
+            opera = 4; 
+            acCle();
+        }
+
+        function acBot( valor ){
+            jvalor = jvalor + valor;
+            $("#cajita").val(jvalor);
+           
+        }
+
+        function acCle(){
+            $("#cajita").val("");
+            jvalor = "";
+        }
+
+        function acCos(){
+            acum = jvalor;
+            opera = 5; 
+            acCle();
+        }
+
+        function acTan(){
+            acum = jvalor;
+            opera = 6; 
+            acCle();
+        }
+
+        function acRai(){
+            acum = jvalor;
+            opera = 7; 
+            acCle();
+        }
+
+        function acPot(){
+            acum = jvalor;
+            opera = 8; 
+            acCle();
+        }
+    </script>
+
+</body>
+</html>
